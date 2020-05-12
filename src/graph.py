@@ -9,8 +9,8 @@ warnings.filterwarnings("ignore")
 # ********************************************* #
 
 def main():
-	cases_path = "E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle_cases.csv"
-	deaths_path = "E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle_deaths.csv"
+	cases_path = "..\\Texas\\panhandle_cases.csv"
+	deaths_path = "..\\Texas\\panhandle_deaths.csv"
 
 	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',

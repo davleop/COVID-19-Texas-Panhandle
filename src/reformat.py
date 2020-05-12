@@ -13,9 +13,9 @@ def main():
 				'Hutchinson', 'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 
 				'Randall', 'Roberts', 'Sherman', 'Swisher', 'Wheeler']
 	
-	filepath = "E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle.csv"
-	deathout = "E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle_deaths.csv"
-	casesout = "E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle_cases.csv"
+	filepath = "..\\Texas\\panhandle.csv"
+	deathout = "..\\Texas\\panhandle_deaths.csv"
+	casesout = "..\\Texas\\panhandle_cases.csv"
 
 	data = []
 

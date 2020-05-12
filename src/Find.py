@@ -27,7 +27,7 @@ class Find:
 
 		return self.out
 
-	def write(self, filepath='.\\out.csv'):
+	def write(self, filepath='out.csv'):
 		# writes the out put of data into a csv file
 		with open(filepath, 'w', newline='') as csvfile:
 			writer = csv.writer(csvfile)

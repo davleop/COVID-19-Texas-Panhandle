@@ -9,10 +9,10 @@ def main():
 				'Sherman', 'Swisher', 'Wheeler']
 	state = ['Texas']
 
-	finder = Find("E:\\BoredProgrammer\\COVID-19\\covid-19-data\\us-counties.csv")
+	finder = Find("..\\covid-19-data\\us-counties.csv")
 	texas_panhandle = finder.data(counties + state)
 
-	finder.write("E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle.csv")
+	finder.write("..\\Texas\\panhandle.csv")
 
 if __name__ == '__main__':
 	main()
