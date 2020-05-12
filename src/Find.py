@@ -11,11 +11,7 @@ class Find:
 			# just return all the data
 			with open(self.filepath, newline='') as csvfile:
 				reader = csv.reader(csvfile)
-				i = 0
 				for row in reader:
-					if i == 0:
-						self.out.append(row)
-						i += 1
 					self.out.append(row)
 		else:
 			# return the data with only the keywords

@@ -12,7 +12,7 @@ def main():
 	finder = Find("E:\\BoredProgrammer\\COVID-19\\covid-19-data\\us-counties.csv")
 	texas_panhandle = finder.data(counties + state)
 
-	finder.write("E:\\BoredProgrammer\\COVID-19\\Texas\\pandhandle.csv")
+	finder.write("E:\\BoredProgrammer\\COVID-19\\Texas\\panhandle.csv")
 
 if __name__ == '__main__':
 	main()
