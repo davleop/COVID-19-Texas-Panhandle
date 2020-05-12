@@ -1,5 +1,6 @@
 # reformat.py
 import csv
+from sys import platform
 
 def write(filepath, headers, data):
 	with open(filepath, 'w', newline='') as csvfile:
@@ -13,9 +14,14 @@ def main():
 				'Hutchinson', 'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 
 				'Randall', 'Roberts', 'Sherman', 'Swisher', 'Wheeler']
 	
-	filepath = "..\\Texas\\panhandle.csv"
-	deathout = "..\\Texas\\panhandle_deaths.csv"
-	casesout = "..\\Texas\\panhandle_cases.csv"
+	if platform == "win32":
+		filepath = "..\\Texas\\panhandle.csv"
+		deathout = "..\\Texas\\panhandle_deaths.csv"
+		casesout = "..\\Texas\\panhandle_cases.csv"
+	else:
+		filepath = "../Texas/panhandle.csv"
+		deathout = "../Texas/panhandle_deaths.csv"
+		casesout = "../Texas/panhandle_cases.csv"
 
 	data = []
 

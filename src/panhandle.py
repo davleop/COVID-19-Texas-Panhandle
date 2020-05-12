@@ -1,4 +1,5 @@
 # panhandle.py
+from sys import platform
 from sys import exit
 from Find import Find
 
@@ -9,10 +10,17 @@ def main():
 				'Sherman', 'Swisher', 'Wheeler']
 	state = ['Texas']
 
-	finder = Find("..\\covid-19-data\\us-counties.csv")
+	if platform == "win32":
+		counties = "..\\covid-19-data\\us-counties.csv"
+		panhandle = "..\\Texas\\panhandle.csv"
+	else:
+		counties = "../covid-19-data/us-counties.csv"
+		panhandle = "../Texas/panhandle.csv"
+
+	finder = Find(counties)
 	texas_panhandle = finder.data(counties + state)
 
-	finder.write("..\\Texas\\panhandle.csv")
+	finder.write()
 
 if __name__ == '__main__':
 	main()

@@ -17,14 +17,13 @@ This is for the people of the Texas Panhandle. It simply just graphs all the cas
 
 ## Executing program
 
-For the time being, you'll need to change the file paths found in the `src` directory.
-
-If using Windows, just use the `run.bat` file.
+For the time being, you'll need to change the file paths found in the `src` directory. <br>
+If using Windows, just use the `run.bat` file. <br>
+If using Linux, use the `run.sh` file.
 
 ## Author
 
-David Penn
-
+David Penn <br>
 [@\_D2P2\_](https://twitter.com/_D2P2_)
 
 ## License
