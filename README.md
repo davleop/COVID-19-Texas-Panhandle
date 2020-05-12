@@ -22,6 +22,7 @@ If using Windows, just use the `run.bat` file.
 ## Author
 
 David Penn
+
 [@\_D2P2\_](https://twitter.com/_D2P2_)
 
 ## License
