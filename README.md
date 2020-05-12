@@ -27,4 +27,4 @@ David Penn
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the Creative Commons Legal Code License - see the LICENSE.md file for details
