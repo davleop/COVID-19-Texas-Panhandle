@@ -12,7 +12,7 @@ This is for the people of the Texas Panhandle. It simply just graphs all the cas
 
 ## Installing
 
-* git clone <TODO (David): put link here>
+* git clone https://github.com/davleop/COVID-19-Texas-Panhandle.git
 * pip install -r requirements.txt
 
 ## Executing program
