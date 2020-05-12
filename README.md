@@ -4,7 +4,7 @@ Graphing mechanisms for COVID-19 in the Texas Panhandle.
 
 ## Description
 
-This is for the people of the Texas Panhandle. It simply just graphs all the cases and deaths using Python which uses [NY Times Coronavirus (Covid-19) Data in the United States](https://github.com/nytimes/covid-19-data) for the collected data.
+This is for the people of the Texas Panhandle. It simply just graphs the information given by the DSHS.
 
 ## Dependencies
 
@@ -12,8 +12,8 @@ This is for the people of the Texas Panhandle. It simply just graphs all the cas
 
 ## Installing
 
-* git clone https://github.com/davleop/COVID-19-Texas-Panhandle.git
-* pip install -r requirements.txt
+* `git clone https://github.com/davleop/COVID-19-Texas-Panhandle.git`
+* `pip install -r requirements.txt`
 
 ## Executing program
 
@@ -28,4 +28,4 @@ David Penn <br>
 
 ## License
 
-This project is licensed under the Creative Commons Legal Code License - see the LICENSE.md file for details
+This project is licensed under the Creative Commons Legal Code License - see the LICENSE.md file for details.

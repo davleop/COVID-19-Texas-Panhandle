@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# TODO(David): just update the data
 if [ -d "covid-19-data" ]; then
 	cd covid-19-data
 	git pull

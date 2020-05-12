@@ -15,13 +15,13 @@ def main():
 				'Randall', 'Roberts', 'Sherman', 'Swisher', 'Wheeler']
 	
 	if platform == "win32":
-		filepath = "..\\Texas\\panhandle.csv"
-		deathout = "..\\Texas\\panhandle_deaths.csv"
-		casesout = "..\\Texas\\panhandle_cases.csv"
+		filepath = "Texas\\panhandle.csv"
+		deathout = "Texas\\panhandle_deaths.csv"
+		casesout = "Texas\\panhandle_cases.csv"
 	else:
-		filepath = "../Texas/panhandle.csv"
-		deathout = "../Texas/panhandle_deaths.csv"
-		casesout = "../Texas/panhandle_cases.csv"
+		filepath = "Texas/panhandle.csv"
+		deathout = "Texas/panhandle_deaths.csv"
+		casesout = "Texas/panhandle_cases.csv"
 
 	data = []
 

@@ -11,11 +11,11 @@ warnings.filterwarnings("ignore")
 
 def main():
 	if platform == "win32":
-		cases_path = "..\\Texas\\panhandle_cases.csv"
-		deaths_path = "..\\Texas\\panhandle_deaths.csv"
+		cases_path = "Texas\\panhandle_cases.csv"
+		deaths_path = "Texas\\panhandle_deaths.csv"
 	else:
-		cases_path = "../Texas/panhandle_cases.csv"
-		deaths_path = "../Texas/panhandle_deaths.csv"
+		cases_path = "Texas/panhandle_cases.csv"
+		deaths_path = "Texas/panhandle_deaths.csv"
 
 	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',

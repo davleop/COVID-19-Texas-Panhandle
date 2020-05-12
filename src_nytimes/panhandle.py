@@ -11,13 +11,13 @@ def main():
 	state = ['Texas']
 
 	if platform == "win32":
-		counties = "..\\covid-19-data\\us-counties.csv"
-		panhandle = "..\\Texas\\panhandle.csv"
+		counties_path = "covid-19-data\\us-counties.csv"
+		panhandle = "Texas\\panhandle.csv"
 	else:
-		counties = "../covid-19-data/us-counties.csv"
-		panhandle = "../Texas/panhandle.csv"
+		counties_path = "covid-19-data/us-counties.csv"
+		panhandle = "Texas/panhandle.csv"
 
-	finder = Find(counties)
+	finder = Find(counties_path)
 	texas_panhandle = finder.data(counties + state)
 
 	finder.write()
