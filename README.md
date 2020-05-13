@@ -28,7 +28,7 @@ You should find all the save images in the `graphs` directory when the program i
 
 ![Actives](png/ActiveCases.png)
 ![Cases](png/Cases.png)
-![Fatalities](png.Fatalities.png)
+![Fatalities](png/Fatalities.png)
 
 ## Author
 
