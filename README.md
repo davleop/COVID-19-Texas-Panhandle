@@ -30,6 +30,10 @@ You should find all the save images in the `graphs` directory when the program i
 ![Cases](png/Cases.png)
 ![Fatalities](png/Fatalities.png)
 
+## Help
+
+You can ping me through [Twitter](https://github.com/davleop/COVID-19-Texas-Panhandle#author) if you need help or [Create an Issue](https://github.com/davleop/COVID-19-Texas-Panhandle/issues)
+
 ## Author
 
 David Penn <br>

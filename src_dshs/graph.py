@@ -133,5 +133,8 @@ def main():
 		except:
 			print("County not found: " + county)
 
+	# TODO(David): Aggregate Randall and Potter County.
+	# TODO(David): 
+
 if __name__ == '__main__':
 	main()
