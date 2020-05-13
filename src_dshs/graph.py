@@ -288,14 +288,10 @@ def main():
 	plt.figure("Fatalities by County", figsize=(12.0, 8.5))
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
-
 	plt.xlabel("County")
 	plt.ylabel("# of Fatalities")
-
 	plt.bar(cf_df.county, cf_df.fatalities)
-
 	plt.xticks(rotation=90)
-
 	plt.title("Fatalities by County\nLast updated: " + fatality_df.index[-1])
 	plt.savefig("graphs/FatalitiesBar.png")
 	plt.savefig("png/FatalitiesBar.png")

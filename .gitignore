@@ -1,7 +1,6 @@
 covid-19-data
 *.pyc
 __pycache__
-clean.bat
 wget-log*
 *.csv
 *.xlsx
