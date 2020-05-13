@@ -37,7 +37,9 @@ def main():
 		Data(fatality_df,"Fatalities","Day","# of Fatalities","Fatalities Across the Texas Panhandle\nLast update: " + str(fatality_df.index[-1]))
 	]
 
-	# Plot general panhandle graphs
+	##############################################################################
+	# Plot general panhandle graphs                                              #
+	##############################################################################
 	for d_obj in df_list:
 		counties = list(variables.counties)
 
@@ -66,7 +68,9 @@ def main():
 		plt.savefig("graphs/" + d_obj.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + d_obj.figure.replace(' ', '') + ".png")
 
-	# Plot individual counties Actives
+	##############################################################################
+	# Plot individual counties Actives                                           #
+	##############################################################################
 	for county in variables.counties:
 		try:
 			active_df[county]
@@ -86,7 +90,9 @@ def main():
 		except:
 			print("County not found: " + county)
 
-	# Plot individual counties Case Counts
+	##############################################################################
+	# Plot individual counties Case Counts                                       #
+	##############################################################################
 	for county in counties:
 		try:
 			case_df[county]
@@ -106,7 +112,9 @@ def main():
 		except:
 			print("County not found: " + county)
 
-	# Plot individual counties Fatalities
+	##############################################################################
+	# Plot individual counties Fatalities                                        #
+	##############################################################################
 	for county in counties:
 		try:
 			fatality_df[county]
@@ -126,7 +134,9 @@ def main():
 		except:
 			print("County not found: " + county)
 
-	# Aggregate Randall and Potter County.
+	##############################################################################			
+	# Aggregate Randall and Potter County.                                       #
+	##############################################################################
 	randall = "Randall"
 	potter  = "Potter"
 	RP_aggregate = "Randall+Potter"
@@ -172,7 +182,9 @@ def main():
 	plt.title("Fatalities for " + RP_aggregate)
 	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
 
-	# Panhandle aggregate
+	##############################################################################
+	# Panhandle aggregate                                                        #
+	##############################################################################
 	agg = 'aggregate'
 	active_df[agg]   = 0
 	case_df[agg]     = 0
@@ -204,10 +216,16 @@ def main():
 		plt.savefig("graphs/" + df.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
+	##############################################################################
+	# TODO(David): Graph recovered cases
+	# From what I can tell, recoveries should be calculated as so:
+	# 	Recoveries = Cases - Active Cases - Fatalities
+	##############################################################################
+
+
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
-	# TODO(David): Graph recovered cases
 
 
 if __name__ == '__main__':

@@ -15,13 +15,14 @@ This is for the people of the Texas Panhandle. It simply just graphs the informa
 ## Installing
 
 * `git clone https://github.com/davleop/COVID-19-Texas-Panhandle.git`
+* `cd COVID-19-Texas-Panhandle`
 * `pip install -r requirements.txt`
 
 ## Executing program
 
-For the time being, you'll need to change the file paths found in the `src` directory. <br>
 If using Windows, just use the `run.bat` file. <br>
-If using Linux, use the `run.sh` file.
+If using Linux, use the `run.sh` file. <br>
+Outputs are in the `graphs` and `png` directories.
 
 ## Screenshots
 
