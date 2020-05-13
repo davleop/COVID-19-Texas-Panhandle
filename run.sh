@@ -7,6 +7,7 @@ cumulativeTest="https://www.dshs.state.tx.us/coronavirus/COVID-19CumulativeTestT
 
 mkdir -p Texas
 mkdir -p Panhandle
+mkdir -p graphs
 
 cd Texas
 curl $casesOverTime --output CaseCountData.xlsx -s

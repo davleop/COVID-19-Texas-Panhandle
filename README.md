@@ -22,6 +22,14 @@ For the time being, you'll need to change the file paths found in the `src` dire
 If using Windows, just use the `run.bat` file. <br>
 If using Linux, use the `run.sh` file.
 
+## Screenshots
+
+You should find all the save images in the `graphs` directory when the program is run.
+
+![Actives](png/ActiveCases.png)
+![Cases](png/Cases.png)
+![Fatalities](png.Fatalities.png)
+
 ## Author
 
 David Penn <br>

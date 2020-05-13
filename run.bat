@@ -12,6 +12,10 @@ if not exist "Panhandle" (
 	mkdir Panhandle
 )
 
+if not exist "graphs" (
+	mkdir Panhandle
+)
+
 cd Texas
 curl %casesOverTime% --output CaseCountData.xlsx -s
 curl %fatalOverTime% --output FatalityCountData.xlsx -s

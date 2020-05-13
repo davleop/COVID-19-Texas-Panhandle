@@ -43,7 +43,7 @@ def main():
 					'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 'Randall', 'Roberts',
 					'Sherman', 'Swisher', 'Wheeler']
 
-		m = plt.figure(d_obj.figure)
+		m = plt.figure(d_obj.figure, figsize=(12.0, 8.5))
 		ax = m.gca()
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -65,6 +65,8 @@ def main():
 
 		plt.title(d_obj.title)
 		plt.legend(counties)
+		plt.savefig("graphs/" + d_obj.figure.replace(' ', '') + ".png")
+		plt.savefig("png/" + d_obj.figure.replace(' ', '') + ".png")
 
 	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
@@ -75,7 +77,7 @@ def main():
 	for county in counties:
 		try:
 			active_df[county]
-			m = plt.figure("Active Cases for " + county)
+			m = plt.figure("Active Cases for " + county, figsize=(12.0, 8.5))
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -87,6 +89,7 @@ def main():
 			plt.xticks(rotation=90)
 
 			plt.title("Active Cases for " + county + " County")
+			plt.savefig("graphs/Active" + county.replace(' ', '') + ".png")
 		except:
 			print("County not found: " + county)
 
@@ -94,7 +97,7 @@ def main():
 	for county in counties:
 		try:
 			case_df[county]
-			m = plt.figure("Case Count for " + county)
+			m = plt.figure("Case Count for " + county, figsize=(12.0, 8.5))
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -106,6 +109,7 @@ def main():
 			plt.xticks(rotation=90)
 
 			plt.title("Case Count for " + county + " County")
+			plt.savefig("graphs/CaseCount" + county.replace(' ', '') + ".png")
 		except:
 			print("County not found: " + county)
 
@@ -113,7 +117,7 @@ def main():
 	for county in counties:
 		try:
 			fatality_df[county]
-			m = plt.figure("Fatalities for " + county)
+			m = plt.figure("Fatalities for " + county, figsize=(12.0, 8.5))
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -125,11 +129,9 @@ def main():
 			plt.xticks(rotation=90)
 
 			plt.title("Fatalities for " + county + " County")
+			plt.savefig("graphs/Fatalities" + county.replace(' ', '') + ".png")
 		except:
 			print("County not found: " + county)
-
-	# Show the graphs
-	plt.show()
 
 if __name__ == '__main__':
 	main()
