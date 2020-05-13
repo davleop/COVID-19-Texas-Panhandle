@@ -29,7 +29,7 @@ You should find all the save images in the `graphs` directory when the program i
 
 ![Active Aggregate](png/ActiveCasesAggregated.png)
 ![Cases Aggregate](png/CasesAggregated.png)
-<!-- ![Fatalities Aggregate](png/FatalitiesAggregated.png) -->
+![Fatalities Aggregate](png/FatalitiesAggregated.png)
 ![Actives](png/ActiveCases.png)
 ![Cases](png/Cases.png)
 ![Fatalities](png/Fatalities.png)

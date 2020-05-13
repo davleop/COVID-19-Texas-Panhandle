@@ -181,7 +181,7 @@ def main():
 	for county in variables.counties:
 		active_df[agg] += active_df[county]
 		case_df[agg] += case_df[county]
-		fatality_df[agg] += fatality_df[agg]
+		fatality_df[agg] += fatality_df[county]
 
 	df_list = [
 		Data(active_df,"Active Cases Aggregated","Day","# of Active Cases","Active Cases Across the Texas Panhandle Aggregated\nLast updated: " + active_df.index[-1]), 
@@ -204,10 +204,10 @@ def main():
 		plt.savefig("graphs/" + df.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
-
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
+	# TODO(David): Graph recovered cases
 
 
 if __name__ == '__main__':
