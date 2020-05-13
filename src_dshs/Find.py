@@ -1,5 +1,7 @@
 # Find.py
 import csv
+import pandas as pd
+import numpy as np
 
 class Find:
 	def __init__(self, filepath):
@@ -9,20 +11,44 @@ class Find:
 	def data(self, keywords=[]):
 		if len(keywords) == 0:
 			# just return all the data
-			with open(self.filepath, newline='') as csvfile:
-				reader = csv.reader(csvfile)
-				for row in reader:
-					self.out.append(row)
-		else:
-			# return the data with only the keywords
-			with open(self.filepath, newline='') as csvfile:
+			df = pd.read_excel(self.filepath)
+			df.drop(df.index[[0]], inplace=True)
+			df.columns = df.iloc[1]
+			df.reset_index(inplace=True, drop=True)
+			df = df.loc[:, df.columns.notnull()]
+			df = df.replace(r'\n',' ',regex=True)
+			df.to_csv("temp.csv", index=False)
+
+			with open("temp.csv", newline='') as csvfile:
 				reader = csv.reader(csvfile)
 				i = 0
 				for row in reader:
 					if i == 0:
+						i += 1
+						continue
+					self.out.append(row)
+
+		else:
+			# return the data with only the keywords
+			df = pd.read_excel(self.filepath)
+			df.drop(df.index[[0]], inplace=True)
+			df.columns = df.iloc[1]
+			df.reset_index(inplace=True, drop=True)
+			df = df.loc[:, df.columns.notnull()]
+			df = df.replace(r'\n',' ',regex=True)
+			df.to_csv("temp.csv", index=False)
+
+			with open("temp.csv", newline='') as csvfile:
+				reader = csv.reader(csvfile)
+				i = 0
+				for row in reader:
+					if i == 0:
+						i += 1
+						continue
+					if i == 1:
 						self.out.append(row)
 						i += 1
-					if row[1] in keywords and row[2] in keywords:
+					if row[0] in keywords:
 						self.out.append(row)
 
 		return self.out

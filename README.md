@@ -8,7 +8,8 @@ This is for the people of the Texas Panhandle. It simply just graphs the informa
 
 ## Dependencies
 
-* Python 3
+* [Python 3](https://www.python.org/)
+* [cURL](https://curl.haxx.se/download.html)
 
 ## Installing
 
