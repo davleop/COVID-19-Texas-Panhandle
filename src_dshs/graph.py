@@ -165,7 +165,6 @@ def main():
 	plt.title("Case Count for " + RP_aggregate)
 	plt.savefig("graphs/CaseCount" + RP_aggregate + ".png")
 
-
 	fatality_df[RP_aggregate] = fatality_df[randall] + fatality_df[potter]
 	m = plt.figure(RP_aggregate + " Fatalities", figsize=(12.0,8.5))
 	ax = m.gca()
@@ -180,7 +179,7 @@ def main():
 	plt.title("Fatalities for " + RP_aggregate)
 	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
 
-
+	# TODO(David): Panhandle aggregate
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
