@@ -24,7 +24,7 @@ def main():
 		fatality_path = "Panhandle\\fatality.csv"
 	else:
 		active_path   = "Panhandle/active.csv"
-		case_apth     = "Panhandle/case.csv"
+		case_path     = "Panhandle/case.csv"
 		fatality_path = "Panhandle/fatality.csv"
 	
 	active_df   = pd.read_csv(active_path, index_col=0)
@@ -66,10 +66,8 @@ def main():
 		plt.savefig("graphs/" + d_obj.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + d_obj.figure.replace(' ', '') + ".png")
 
-	counties = list(variables.counties)
-	
 	# Plot individual counties Actives
-	for county in counties:
+	for county in variables.counties:
 		try:
 			active_df[county]
 			m = plt.figure("Active Cases for " + county, figsize=(12.0, 8.5))
@@ -174,7 +172,37 @@ def main():
 	plt.title("Fatalities for " + RP_aggregate)
 	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
 
-	# TODO(David): Panhandle aggregate
+	# Panhandle aggregate
+	agg = 'aggregate'
+	active_df[agg]   = 0
+	case_df[agg]     = 0
+	fatality_df[agg] = 0 
+	
+	for county in variables.counties:
+		active_df[agg] += active_df[county]
+		case_df[agg] += case_df[county]
+		fatality_df[agg] += fatality_df[agg]
+
+	df_list = [
+		Data(active_df,"Active Cases Aggregated","Day","# of Active Cases","Active Cases Across the Texas Panhandle Aggregated\nLast updated: " + active_df.index[-1]), 
+		Data(case_df,"Cases Aggregated","Day","# of Cases","Case Counts Across the Texas Panhandle Aggregated\nLast updated: " + case_df.index[-1]),
+		Data(fatality_df,"Fatalities Aggregated","Day","# of Fatalities","Fatalities Across the Texas Panhandle Aggregated\nLast update: " + str(fatality_df.index[-1]))
+	]
+
+	for df in df_list:
+		m = plt.figure(df.figure, figsize=(12.0, 8.5))
+		ax = m.gca()
+		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+		plt.xlabel(df.xlabel)
+		plt.ylabel(df.ylabel)
+
+		plt.plot(df.df[agg])
+		plt.xticks(rotation=90)
+
+		plt.title(df.title)
+		plt.savefig("graphs/" + df.figure.replace(' ', '') + ".png")
+		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
 
 	# TODO(David): Graph rate of inc/dec of cases per day
