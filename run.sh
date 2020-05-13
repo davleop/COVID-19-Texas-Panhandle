@@ -1,15 +1,19 @@
 #!/bin/bash
-# TODO(David): just update the data
-if [ -d "covid-19-data" ]; then
-	cd covid-19-data
-	git pull
-	cd ..
-	python3 src/panhandle.py
-	python3 src/reformat.py
-	python3 src/graph.py
-else
-	git clone https://github.com/nytimes/covid-19-data.git
-	python3 src/panhandle.py
-	python3 src/reformat.py
-	python3 src/graph.py
-fi
+
+casesOverTime="https://www.dshs.state.tx.us/coronavirus/TexasCOVID19DailyCountyCaseCountData.xlsx"
+fatalOverTime="https://www.dshs.state.tx.us/coronavirus/TexasCOVID19DailyCountyFatalityCountData.xlsx"
+activeOverTime="https://www.dshs.state.tx.us/coronavirus/TexasCOVID-19ActiveCaseDatabyCounty.xlsx"
+cumulativeTest="https://www.dshs.state.tx.us/coronavirus/COVID-19CumulativeTestTotalsbyCounty.xlsx"
+
+mkdir -p Texas
+mkdir -p Panhandle
+
+cd Texas
+curl $casesOverTime --output CaseCountData.xlsx -s
+curl $fatalOverTime --output FatalityCountData.xlsx -s
+curl $activeOverTime --output ActiveCaseData.xlsx -s
+curl $cumulativeTest --output CumulativeTestTotals.xlsx -s
+cd ..
+
+python3 src_dshs/panhandle.py
+python3 src_dshs/reformat.py

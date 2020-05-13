@@ -38,12 +38,12 @@ def main():
 	active_df.rename(columns=rename_dict, inplace=True)
 	active_df.set_index("date",inplace=True)
 	active_df = active_df.T
-	active_df.to_csv(active_out)
+	active_df.to_csv(active_out, index_label=active_df.index.name)
 
 	# Process Case Counts
 	case_df = pd.read_csv(case_path)
-	old_cols = case_df.columns.tolist()
 	case_df.drop(["Population"], axis=1, inplace=True)
+	old_cols = case_df.columns.tolist()
 	new_cols = ["date"]
 	for date in old_cols[1:]:
 		new_cols.append("2020-" + date[7:])
@@ -68,7 +68,7 @@ def main():
 	fatality_df.rename(columns=rename_dict, inplace=True)
 	fatality_df.set_index("date",inplace=True)
 	fatality_df = fatality_df.T
-	fatality_df.to_csv(fatality_out, index=False)
+	fatality_df.to_csv(fatality_out)
 
 if __name__ == '__main__':
 	main()
