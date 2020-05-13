@@ -135,7 +135,9 @@ def main():
 
 	# TODO(David): Aggregate Randall and Potter County.
 	# TODO(David): Graph rate of inc/dec of cases per day
-	# TODO(David): 
+	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
+	# TODO(David): Forecasting/Trend Analysis?
+
 
 if __name__ == '__main__':
 	main()
