@@ -40,7 +40,7 @@ def main():
 	for d_obj in df_list:
 		counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 					'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
-					'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 'Randall', 'Roberts',
+					'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Parmer', 'Potter', 'Randall', 'Roberts',
 					'Sherman', 'Swisher', 'Wheeler']
 
 		m = plt.figure(d_obj.figure, figsize=(12.0, 8.5))
@@ -70,7 +70,7 @@ def main():
 
 	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
-				'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 'Randall', 'Roberts',
+				'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Parmer', 'Potter', 'Randall', 'Roberts',
 				'Sherman', 'Swisher', 'Wheeler']
 	
 	# Plot individual counties Actives
@@ -134,6 +134,7 @@ def main():
 			print("County not found: " + county)
 
 	# TODO(David): Aggregate Randall and Potter County.
+	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): 
 
 if __name__ == '__main__':
