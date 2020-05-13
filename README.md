@@ -32,12 +32,12 @@ You should find all the save images in the `graphs` directory when the program i
 
 ## Help
 
-You can ping me through [Twitter](https://github.com/davleop/COVID-19-Texas-Panhandle#author) if you need help or [Create an Issue](https://github.com/davleop/COVID-19-Texas-Panhandle/issues)
+You can ping me through [Twitter](https://twitter.com/_D2P2_) if you need help or [Create an Issue](https://github.com/davleop/COVID-19-Texas-Panhandle/issues)
 
 ## Author
 
 David Penn <br>
-[@\_D2P2\_](https://twitter.com/_D2P2_)
+Twitter: [@\_D2P2\_](https://twitter.com/_D2P2_)
 
 ## License
 
