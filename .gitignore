@@ -5,3 +5,4 @@ clean.bat
 wget-log*
 *.csv
 *.xlsx
+graphs

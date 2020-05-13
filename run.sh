@@ -17,3 +17,4 @@ cd ..
 
 python3 src_dshs/panhandle.py
 python3 src_dshs/reformat.py
+python3 src_dshs/graph.py

@@ -6,10 +6,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from Data import Data
+from sys import setrecursionlimit
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
 # ********************************************* #
+
+# *** SET NEW RECURSION LIMIT *** #
+setrecursionlimit(10000)
+# ******************************* #
 
 def main():
 	if platform == "win32":
@@ -27,7 +32,7 @@ def main():
 
 	df_list = [
 		Data(active_df,"Active Cases","Day","# of Active Cases","Active Cases Across the Texas Panhandle\nLast updated: " + active_df.index[-1]), 
-		Data(case_df,"Cases","Day","# of Cases","Cases Across the Texas Panhandle\nLast updated: " + case_df.index[-1]),
+		Data(case_df,"Cases","Day","# of Cases","Case Counts Across the Texas Panhandle\nLast updated: " + case_df.index[-1]),
 		Data(fatality_df,"Fatalities","Day","# of Fatalities","Fatalities Across the Texas Panhandle\nLast update: " + str(fatality_df.index[-1]))
 	]
 
@@ -39,7 +44,6 @@ def main():
 					'Sherman', 'Swisher', 'Wheeler']
 
 		m = plt.figure(d_obj.figure)
-		
 		ax = m.gca()
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -70,7 +74,57 @@ def main():
 	# Plot individual counties Actives
 	for county in counties:
 		try:
-			pass
+			active_df[county]
+			m = plt.figure("Active Cases for " + county)
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of Active Cases")
+
+			plt.plot(active_df[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("Active Cases for " + county + " County")
+		except:
+			print("County not found: " + county)
+
+	# Plot individual counties Case Counts
+	for county in counties:
+		try:
+			case_df[county]
+			m = plt.figure("Case Count for " + county)
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of Cases")
+
+			plt.plot(case_df[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("Case Count for " + county + " County")
+		except:
+			print("County not found: " + county)
+
+	# Plot individual counties Fatalities
+	for county in counties:
+		try:
+			fatality_df[county]
+			m = plt.figure("Fatalities for " + county)
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of Fatalities")
+
+			plt.plot(fatality_df[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("Fatalities for " + county + " County")
 		except:
 			print("County not found: " + county)
 
