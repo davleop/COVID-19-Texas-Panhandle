@@ -1,5 +1,4 @@
 # reformat.py
-import csv
 from sys import platform
 import pandas as pd
 
@@ -52,15 +51,22 @@ def main():
 	case_df.rename(columns=rename_dict, inplace=True)
 	case_df.set_index("date",inplace=True)
 	case_df = case_df.T
-	case_df.to_csv(case_out, index=False)
+	case_df.to_csv(case_out)
 
 	# Process Test Totals
-	test_df = pd.read_csv(test_path)
-	test_df = test_df.T
+	test_df = pd.read_csv(test_path,names=['county', 'tests'])
 	test_df.to_csv(test_out, index=False)
 
 	# Process Fatality Counts
 	fatality_df = pd.read_csv(fatality_path)
+	fatality_df.drop(["Population"], axis=1, inplace=True)
+	old_cols = fatality_df.columns.tolist()
+	new_cols = ['date']
+	for date in old_cols[1:]:
+		new_cols.append("2020-" + date[11:])
+	rename_dict = {i:j for i,j in zip(old_cols,new_cols)}
+	fatality_df.rename(columns=rename_dict, inplace=True)
+	fatality_df.set_index("date",inplace=True)
 	fatality_df = fatality_df.T
 	fatality_df.to_csv(fatality_out, index=False)
 
