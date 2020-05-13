@@ -9,6 +9,8 @@ from Data import Data
 from sys import setrecursionlimit
 import variables
 from datetime import datetime
+import csv
+from sys import exit
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -23,14 +25,17 @@ def main():
 		active_path   = "Panhandle\\active.csv"
 		case_path     = "Panhandle\\case.csv"
 		fatality_path = "Panhandle\\fatality.csv"
+		cf_path       = "Panhandle\\CaseFatalCount.csv"
 	else:
 		active_path   = "Panhandle/active.csv"
 		case_path     = "Panhandle/case.csv"
 		fatality_path = "Panhandle/fatality.csv"
+		cf_path       = "Panhandle/CaseFatalCount.csv"
 	
 	active_df   = pd.read_csv(active_path, index_col=0)
 	case_df     = pd.read_csv(case_path, index_col=0)
 	fatality_df = pd.read_csv(fatality_path, index_col=0)
+	cf_df       = pd.read_csv(cf_path, names=['county','cases','fatalities'])
 
 	df_list = [
 		Data(active_df,"Active Cases","Day","# of Active Cases","Active Cases Across the Texas Panhandle\nLast updated: " + active_df.index[-1]), 
@@ -218,11 +223,11 @@ def main():
 		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
 	##############################################################################
-	# TODO(David): Graph recovered cases
+	# Graph recovered cases
 	# From what I can tell, recoveries should be calculated as so:
 	# 	Recoveries = Cases - Active Cases - Fatalities
 	# *** IF THIS IS WRONG, PLEASE CORRECT ME BY SUBMITTING AN ISSUE OR ***
-	# *** OR DO A PULL REQUEST CORRECTING THE ISSUE                     ***      
+	# *** OR DO A PULL REQUEST CORRECTING THE ISSUE                     ***   
 	##############################################################################
 	headers = list(variables.counties)
 	headers.append("Randall+Potter")
@@ -258,8 +263,6 @@ def main():
 
 			plt.title("Recoveries: " + county)
 			plt.savefig("graphs/Recoveries" + county.replace(' ', '') + ".png")
-			if county == 'aggregate':
-				plt.savefig("png/RecoveriesAggregate.png")
 		except:
 			print("County not found: " + county)
 
@@ -275,10 +278,28 @@ def main():
 
 	plt.xticks(rotation=90)
 
-	plt.title("Recoveries for the Texas Panhandle")
+	plt.title("Recoveries for the Texas Panhandle\n(may not be accurate due to descrepancies in data collection")
 	plt.legend(variables.counties)
 	plt.savefig("graphs/Recoveries.png")
-	plt.savefig("png/Recoveries.png")
+
+	##############################################################################
+	# Fatalities bar graph
+	##############################################################################
+	plt.figure("Fatalities by County", figsize=(12.0, 8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("County")
+	plt.ylabel("# of Fatalities")
+
+	plt.bar(cf_df.county, cf_df.fatalities)
+
+	plt.xticks(rotation=90)
+
+	plt.title("Fatalities by County\nLast updated: " + fatality_df.index[-1])
+	plt.savefig("graphs/FatalitiesBar.png")
+	plt.savefig("png/FatalitiesBar.png")
+
 
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.

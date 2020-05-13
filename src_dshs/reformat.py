@@ -9,24 +9,28 @@ def main():
 		case_path     = "Panhandle\\CaseCountData.csv"
 		test_path     = "Panhandle\\CumulativeTestTotals.csv"
 		fatality_path = "Panhandle\\FatalityCountData.csv"
+		cf_path       = "Texas\\CaseFatalCount.xlsx"
 
 		# OUT
 		active_out   = "Panhandle\\active.csv"
 		case_out     = "Panhandle\\case.csv"
 		test_out     = "Panhandle\\test.csv"
 		fatality_out = "Panhandle\\fatality.csv"
+		cf_out       = "Panhandle\\CaseFatalCount.csv"
 	else:
 		# IN
 		active_path   = "Panhandle/ActiveCaseData.csv"
 		case_path     = "Panhandle/CaseCountData.csv"
 		test_path     = "Panhandle/CumulativeTestTotals.csv"
 		fatality_path = "Panhandle/FatalityCountData.csv"
+		cf_path       = "Texas/CaseFatalCount.xlsx"
 
 		# OUT
 		active_out   = "Panhandle/active.csv"
 		case_out     = "Panhandle/case.csv"
 		test_out     = "Panhandle/test.csv"
 		fatality_out = "Panhandle/fatality.csv"
+		cf_out       = "Panhandle/CaseFatalCount.csv"
 
 	# Process Active Cases
 	active_df = pd.read_csv(active_path)
@@ -69,6 +73,6 @@ def main():
 	fatality_df.set_index("date",inplace=True)
 	fatality_df = fatality_df.T
 	fatality_df.to_csv(fatality_out)
-
+	
 if __name__ == '__main__':
 	main()

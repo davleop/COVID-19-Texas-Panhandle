@@ -13,40 +13,47 @@ def main():
 		case_path     = "Texas\\CaseCountData.xlsx"
 		test_path     = "Texas\\CumulativeTestTotals.xlsx"
 		fatality_path = "Texas\\FatalityCountData.xlsx"
+		cf_path       = "Texas\\CaseFatalCount.xlsx"
 
 		# OUT
 		active_out   = "Panhandle\\ActiveCaseData.csv"
 		case_out     = "Panhandle\\CaseCountData.csv"
 		test_out     = "Panhandle\\CumulativeTestTotals.csv"
 		fatality_out = "Panhandle\\FatalityCountData.csv"
+		cf_out       = "Panhandle\\CaseFatalCount.csv"
 	else:
 		# IN
 		active_path   = "Texas/ActiveCaseData.xlsx"
 		case_path     = "Texas/CaseCountData.xlsx"
 		test_path     = "Texas/CumulativeTestTotals.xlsx"
 		fatality_path = "Texas/FatalityCountData.xlsx"
+		cf_path       = "Texas/CaseFatalCount.xlsx"
 
 		# OUT
 		active_out   = "Panhandle/ActiveCaseData.csv"
 		case_out     = "Panhandle/CaseCountData.csv"
 		test_out     = "Panhandle/CumulativeTestTotals.csv"
 		fatality_out = "Panhandle/FatalityCountData.csv"
+		cf_out       = "Panhandle/CaseFatalCount.csv"
 
 	actives    = Find(active_path)
 	cases      = Find(case_path)
 	tests      = Find(test_path)
 	fatalities = Find(fatality_path)
+	cf         = Find(cf_path)
 
 	
 	actives.data(counties)
 	cases.data(counties)
 	tests.data(counties)
 	fatalities.data(counties)
+	cf.data(counties)
 
 	actives.write(active_out)
 	cases.write(case_out)
 	tests.write(test_out)
 	fatalities.write(fatality_out)
+	cf.write(cf_out)
 	
 
 if __name__ == '__main__':

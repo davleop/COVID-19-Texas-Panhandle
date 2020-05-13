@@ -6,6 +6,7 @@ Graphing mechanisms for COVID-19 in the Texas Panhandle.
 
 This is for the people of the Texas Panhandle. It simply just graphs the information given by the DSHS.<br>
 Note: Some of the data is calculated and may be calculated incorrectly. If you find conflicting information, please just use the DSHS's data over these graphs. <br>
+I don't know how fatalities goes down either. I'm just representing the data the DSHS has provided.<br>
 *** WORK IN PROGRESS ***
 
 ## Dependencies
@@ -32,11 +33,10 @@ You should find all the save images in the `graphs` directory when the program i
 ![Active Aggregate](png/ActiveCasesAggregated.png)
 ![Cases Aggregate](png/CasesAggregated.png)
 ![Fatalities Aggregate](png/FatalitiesAggregated.png)
-![Recoveries Aggregate](png/RecoveriesAggregate.png)
 ![Actives](png/ActiveCases.png)
 ![Cases](png/Cases.png)
 ![Fatalities](png/Fatalities.png)
-![Recoveries](png/Recoveries.png)
+![Fatalities Bar](png/FatalitiesBar.png)
 
 ## Help
 
