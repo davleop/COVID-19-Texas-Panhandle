@@ -8,6 +8,7 @@ from matplotlib.ticker import MaxNLocator
 from Data import Data
 from sys import setrecursionlimit
 import variables
+from datetime import datetime
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -220,8 +221,64 @@ def main():
 	# TODO(David): Graph recovered cases
 	# From what I can tell, recoveries should be calculated as so:
 	# 	Recoveries = Cases - Active Cases - Fatalities
+	# *** IF THIS IS WRONG, PLEASE CORRECT ME BY SUBMITTING AN ISSUE OR ***
+	# *** OR DO A PULL REQUEST CORRECTING THE ISSUE                     ***      
 	##############################################################################
+	headers = list(variables.counties)
+	headers.append("Randall+Potter")
+	headers.append("aggregate")
 
+	cp_case_df     = case_df.copy()
+	cp_fatality_df = fatality_df.copy()
+
+	dta = datetime.strptime(active_df.index[0], '%Y-%m-%d')
+	dtc = datetime.strptime(cp_case_df.index[0], '%Y-%m-%d')
+	delta = dta - dtc
+	days = int(delta.days)
+
+	cp_case_df = cp_case_df.iloc[days-3:]
+	cp_fatality_df = cp_fatality_df[days:]
+
+	cp_fatality_df.set_index(cp_case_df.index, inplace=True)
+	recoveries = cp_case_df - active_df - cp_fatality_df
+
+	for county in headers:
+		try:
+			recoveries[county]
+			m = plt.figure("Recoveries: " + county, figsize=(12.0, 8.5))
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of Recoveries")
+
+			plt.plot(recoveries[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("Recoveries: " + county)
+			plt.savefig("graphs/Recoveries" + county.replace(' ', '') + ".png")
+			if county == 'aggregate':
+				plt.savefig("png/RecoveriesAggregate.png")
+		except:
+			print("County not found: " + county)
+
+	m = plt.figure("Recoveries for the Texas Panhandle", figsize=(12.0, 8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of Recoveries")
+
+	for county in variables.counties:
+		plt.plot(recoveries[county])
+
+	plt.xticks(rotation=90)
+
+	plt.title("Recoveries for the Texas Panhandle")
+	plt.legend(variables.counties)
+	plt.savefig("graphs/Recoveries.png")
+	plt.savefig("png/Recoveries.png")
 
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
