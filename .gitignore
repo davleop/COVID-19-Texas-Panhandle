@@ -4,3 +4,4 @@ __pycache__
 clean.bat
 wget-log*
 *.csv
+*.xlsx

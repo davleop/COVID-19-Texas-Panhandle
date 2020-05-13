@@ -4,6 +4,14 @@ set fatalOverTime=https://www.dshs.state.tx.us/coronavirus/TexasCOVID19DailyCoun
 set activeOverTime=https://www.dshs.state.tx.us/coronavirus/TexasCOVID-19ActiveCaseDatabyCounty.xlsx
 set cumulativeTest=https://www.dshs.state.tx.us/coronavirus/COVID-19CumulativeTestTotalsbyCounty.xlsx
 
+if not exist "Texas" (
+	mkdir Texas
+)
+
+if not exist "Panhandle" (
+	mkdir Panhandle
+)
+
 cd Texas
 curl %casesOverTime% --output CaseCountData.xlsx -s
 curl %fatalOverTime% --output FatalityCountData.xlsx -s
