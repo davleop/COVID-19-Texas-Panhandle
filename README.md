@@ -27,9 +27,9 @@ If using Linux, use the `run.sh` file.
 
 You should find all the save images in the `graphs` directory when the program is run.
 
-![Active Aggregate](png/ActiveCasesAggregate.png)
-![Cases Aggregate](png/CasesAggregate.png)
-![Fatalities Aggregate](png/FatalitiesAggregate.png)
+![Active Aggregate](png/ActiveCasesAggregated.png)
+![Cases Aggregate](png/CasesAggregated.png)
+![Fatalities Aggregate](png/FatalitiesAggregated.png)
 ![Actives](png/ActiveCases.png)
 ![Cases](png/Cases.png)
 ![Fatalities](png/Fatalities.png)
