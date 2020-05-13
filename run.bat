@@ -12,3 +12,4 @@ curl %cumulativeTest% --output CumulativeTestTotals.xlsx -s
 cd ..
 
 python3 src_dshs\panhandle.py
+python3 src_dshs\reformat.py
