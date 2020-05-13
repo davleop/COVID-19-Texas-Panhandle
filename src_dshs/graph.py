@@ -31,6 +31,7 @@ def main():
 		Data(fatality_df,"Fatalities","Day","# of Fatalities","Fatalities Across the Texas Panhandle\nLast update: " + str(fatality_df.index[-1]))
 	]
 
+	# Plot general panhandle graphs
 	for d_obj in df_list:
 		counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
 					'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
@@ -60,6 +61,18 @@ def main():
 
 		plt.title(d_obj.title)
 		plt.legend(counties)
+
+	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
+				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
+				'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Palmer', 'Potter', 'Randall', 'Roberts',
+				'Sherman', 'Swisher', 'Wheeler']
+	
+	# Plot individual counties Actives
+	for county in counties:
+		try:
+			pass
+		except:
+			print("County not found: " + county)
 
 	# Show the graphs
 	plt.show()

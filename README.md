@@ -13,6 +13,7 @@ This is for the people of the Texas Panhandle. It simply just graphs the informa
 
 ## Installing
 
+* `git clone https://github.com/davleop/COVID-19-Texas-Panhandle.git`
 * `pip install -r requirements.txt`
 
 ## Executing program
