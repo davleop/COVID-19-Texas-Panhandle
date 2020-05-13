@@ -5,6 +5,7 @@ Graphing mechanisms for COVID-19 in the Texas Panhandle.
 ## Description
 
 This is for the people of the Texas Panhandle. It simply just graphs the information given by the DSHS.<br>
+Note: Some of the data is calculated and may be calculated incorrectly. If you find conflicting information, please just use the DSHS's data over these graphs. <br>
 *** WORK IN PROGRESS ***
 
 ## Dependencies
