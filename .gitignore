@@ -3,4 +3,4 @@ covid-19-data
 __pycache__
 clean.bat
 wget-log*
-temp.csv
+*.csv
