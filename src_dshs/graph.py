@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from Data import Data
 from sys import setrecursionlimit
+import variables
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -38,10 +39,7 @@ def main():
 
 	# Plot general panhandle graphs
 	for d_obj in df_list:
-		counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
-					'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
-					'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Parmer', 'Potter', 'Randall', 'Roberts',
-					'Sherman', 'Swisher', 'Wheeler']
+		counties = list(variables.counties)
 
 		m = plt.figure(d_obj.figure, figsize=(12.0, 8.5))
 		ax = m.gca()
@@ -68,10 +66,7 @@ def main():
 		plt.savefig("graphs/" + d_obj.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + d_obj.figure.replace(' ', '') + ".png")
 
-	counties = ['Armstrong', 'Briscoe', 'Carson', 'Castro', 'Childress', 'Collingsworth', 'Dallam',
-				'Deaf Smith', 'Donley', 'Gray', 'Hall', 'Hansford', 'Hartley', 'Hemphill','Hutchinson',
-				'Lipscomb', 'Moore', 'Ochiltree', 'Oldham', 'Parmer', 'Potter', 'Randall', 'Roberts',
-				'Sherman', 'Swisher', 'Wheeler']
+	counties = list(variables.counties)
 	
 	# Plot individual counties Actives
 	for county in counties:
@@ -180,6 +175,8 @@ def main():
 	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
 
 	# TODO(David): Panhandle aggregate
+
+
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
