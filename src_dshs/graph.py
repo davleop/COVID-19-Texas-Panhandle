@@ -133,7 +133,54 @@ def main():
 		except:
 			print("County not found: " + county)
 
-	# TODO(David): Aggregate Randall and Potter County.
+	# Aggregate Randall and Potter County.
+	randall = "Randall"
+	potter  = "Potter"
+	RP_aggregate = "Randall+Potter"
+	active_df[RP_aggregate] = active_df[randall] + active_df[potter]
+	m = plt.figure(RP_aggregate + " Active Cases", figsize=(12.0,8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of Active Cases")
+
+	plt.plot(active_df[RP_aggregate])
+	plt.xticks(rotation=90)
+
+	plt.title("Active Cases for " + RP_aggregate)
+	plt.savefig("graphs/Active" + RP_aggregate + ".png")
+
+	case_df[RP_aggregate] = case_df[randall] + case_df[potter]
+	m = plt.figure(RP_aggregate + " Case Count", figsize=(12.0,8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of Cases")
+
+	plt.plot(case_df[RP_aggregate])
+	plt.xticks(rotation=90)
+
+	plt.title("Case Count for " + RP_aggregate)
+	plt.savefig("graphs/CaseCount" + RP_aggregate + ".png")
+
+
+	fatality_df[RP_aggregate] = fatality_df[randall] + fatality_df[potter]
+	m = plt.figure(RP_aggregate + " Fatalities", figsize=(12.0,8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of Fatalities")
+
+	plt.plot(fatality_df[RP_aggregate])
+	plt.xticks(rotation=90)
+
+	plt.title("Fatalities for " + RP_aggregate)
+	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
+
+
 	# TODO(David): Graph rate of inc/dec of cases per day
 	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
