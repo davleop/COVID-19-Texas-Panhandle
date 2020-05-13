@@ -13,7 +13,7 @@ if not exist "Panhandle" (
 )
 
 if not exist "graphs" (
-	mkdir Panhandle
+	mkdir graphs
 )
 
 cd Texas
