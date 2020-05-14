@@ -475,6 +475,10 @@ def main():
 	fatality_df.index = pd.to_datetime(fatality_df.index)
 	new_df.index = pd.to_datetime(new_df.index)
 
+	print(active_df.head())
+	print(case_df.head())
+	print(fatality_df.head())
+	print(new_df.head())
 
 if __name__ == '__main__':
 	main()
