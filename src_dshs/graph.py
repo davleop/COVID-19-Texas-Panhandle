@@ -48,10 +48,14 @@ def main():
 	cf_df       = pd.read_csv(cf_path, names=['county','cases','fatalities'])
 
 	df_list = [
-		Data(active_df,"Active Cases","Day","# of Active Cases","Active Cases Across the Texas Panhandle\nLast updated: " + active_df.index[-1]), 
+		Data(active_df,"Active Cases Estimate","Day","# of Active Cases Estimate","Active Cases Estimate Across the Texas Panhandle\nLast updated: " + active_df.index[-1]), 
 		Data(case_df,"Cases","Day","# of Cases","Case Counts Across the Texas Panhandle\nLast updated: " + case_df.index[-1]),
 		Data(fatality_df,"Fatalities","Day","# of Fatalities","Fatalities Across the Texas Panhandle\nLast update: " + str(fatality_df.index[-1]))
 	]
+
+
+
+	#exit(0)
 
 	##############################################################################
 	# Plot general panhandle graphs                                              #
@@ -90,19 +94,19 @@ def main():
 	for county in variables.counties:
 		try:
 			active_df[county]
-			m = plt.figure("Active Cases for " + county, figsize=(12.0, 8.5))
+			m = plt.figure("Active Cases Estimate for " + county, figsize=(12.0, 8.5))
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 			plt.xlabel("Day")
-			plt.ylabel("# of Active Cases")
+			plt.ylabel("# of Active Cases Estimate")
 
 			plt.plot(active_df[county])
 
 			plt.xticks(rotation=90)
 
-			plt.title("Active Cases for " + county + " County")
-			plt.savefig("graphs/Active" + county.replace(' ', '') + ".png")
+			plt.title("Active Cases Estimate for " + county + " County")
+			plt.savefig("graphs/ActiveEstimate" + county.replace(' ', '') + ".png")
 		except:
 			print("County not found: " + county)
 
@@ -157,18 +161,18 @@ def main():
 	potter  = "Potter"
 	RP_aggregate = "Randall+Potter"
 	active_df[RP_aggregate] = active_df[randall] + active_df[potter]
-	m = plt.figure(RP_aggregate + " Active Cases", figsize=(12.0,8.5))
+	m = plt.figure(RP_aggregate + " Active Cases Estimate", figsize=(12.0,8.5))
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 	plt.xlabel("Day")
-	plt.ylabel("# of Active Cases")
+	plt.ylabel("# of Active Cases Estimate")
 
 	plt.plot(active_df[RP_aggregate])
 	plt.xticks(rotation=90)
 
-	plt.title("Active Cases for " + RP_aggregate)
-	plt.savefig("graphs/Active" + RP_aggregate + ".png")
+	plt.title("Active Cases Estimate for " + RP_aggregate)
+	plt.savefig("graphs/ActiveEstimate" + RP_aggregate + ".png")
 
 	case_df[RP_aggregate] = case_df[randall] + case_df[potter]
 	m = plt.figure(RP_aggregate + " Case Count", figsize=(12.0,8.5))
@@ -212,7 +216,7 @@ def main():
 		fatality_df[agg] += fatality_df[county]
 
 	df_list = [
-		Data(active_df,"Active Cases Aggregated","Day","# of Active Cases","Active Cases Across the Texas Panhandle Aggregated\nLast updated: " + active_df.index[-1]), 
+		Data(active_df,"Active Cases Estimate Aggregated","Day","# of Active Cases Estimate","Active Cases Estimate Across the Texas Panhandle Aggregated\nLast updated: " + active_df.index[-1]), 
 		Data(case_df,"Cases Aggregated","Day","# of Cases","Case Counts Across the Texas Panhandle Aggregated\nLast updated: " + case_df.index[-1]),
 		Data(fatality_df,"Fatalities Aggregated","Day","# of Fatalities","Fatalities Across the Texas Panhandle Aggregated\nLast update: " + str(fatality_df.index[-1]))
 	]
@@ -355,7 +359,13 @@ def main():
 	plt.savefig("graphs/PanhandleFatalities.png")
 	plt.savefig("png/PanhandleFatalities.png")
 
-	# TODO(David): Graph rate of inc/dec of cases per day
+	##############################################################################
+	# TODO(David): Graph number of new of cases per day
+	##############################################################################
+
+
+
+
 	# TODO(David): Forecasting/Trend Analysis?
 
 
