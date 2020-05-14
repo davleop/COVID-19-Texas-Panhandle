@@ -253,6 +253,23 @@ def main():
 		plt.savefig("graphs/" + df.figure.replace(' ', '') + ".png")
 		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
+	for df in df_list:
+		m = plt.figure(df.figure + " Bar", figsize=(12.0, 8.5))
+		ax = m.gca()
+		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+		plt.xlabel(df.xlabel)
+		plt.ylabel(df.ylabel)
+
+		plt.bar(df.df.index,df.df[agg])
+		plt.xticks(rotation=90)
+
+		plt.title(df.title)
+		plt.savefig("graphs/" + df.figure.replace(' ', '') + "Bar.png")
+		plt.savefig("png/" + df.figure.replace(' ', '') + "Bar.png")
+
+	
+
 	##############################################################################
 	# Graph recovered cases
 	# From what I can tell, recoveries should be calculated as so:
