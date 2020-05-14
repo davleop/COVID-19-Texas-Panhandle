@@ -307,6 +307,20 @@ def main():
 	plt.savefig("png/FatalitiesBar.png")
 
 	##############################################################################
+	# Fatalities bar graph
+	##############################################################################
+	plt.figure("Cases by County", figsize=(12.0, 8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+	plt.xlabel("County")
+	plt.ylabel("# of Cases")
+	plt.bar(cf_df.county, cf_df.cases)
+	plt.xticks(rotation=90)
+	plt.title("Cases by County\nLast updated: " + case_df.index[-1])
+	plt.savefig("graphs/CasesBar.png")
+	plt.savefig("png/CasesBar.png")
+
+	##############################################################################
 	# Graph of panhandle with circles correlated to cases, fatalities, etc.
 	##############################################################################
 	plt.figure("Panhandle Case Count")
