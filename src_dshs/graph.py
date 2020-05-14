@@ -276,6 +276,7 @@ def main():
 	# 	Recoveries = Cases - Active Cases - Fatalities
 	# *** IF THIS IS WRONG, PLEASE CORRECT ME BY SUBMITTING AN ISSUE OR ***
 	# *** OR DO A PULL REQUEST CORRECTING THE ISSUE                     ***   
+	# *** I DO BELIEVE THIS IS WRONG. PLEASE BE CAREFUL                 ***
 	##############################################################################
 	headers = list(variables.counties)
 	headers.append("Randall+Potter")
