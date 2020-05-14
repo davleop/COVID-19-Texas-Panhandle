@@ -34,28 +34,27 @@ def main():
 		case_path     = "Panhandle\\case.csv"
 		fatality_path = "Panhandle\\fatality.csv"
 		cf_path       = "Panhandle\\CaseFatalCount.csv"
+		new_case_path = "Panhandle\\NewCases.csv"
 		panhandle_img = "png\\panhandle.png"
 	else:
 		active_path   = "Panhandle/active.csv"
 		case_path     = "Panhandle/case.csv"
 		fatality_path = "Panhandle/fatality.csv"
 		cf_path       = "Panhandle/CaseFatalCount.csv"
+		new_case_path = "Panhandle/NewCases.csv"
 		panhandle_img = "png/panhandle.png"
 
 	active_df   = pd.read_csv(active_path, index_col=0)
 	case_df     = pd.read_csv(case_path, index_col=0)
 	fatality_df = pd.read_csv(fatality_path, index_col=0)
 	cf_df       = pd.read_csv(cf_path, names=['county','cases','fatalities'])
+	new_df		= pd.read_csv(new_case_path, index_col=0)
 
 	df_list = [
 		Data(active_df,"Active Cases Estimate","Day","# of Active Cases Estimate","Active Cases Estimate Across the Texas Panhandle\nLast updated: " + active_df.index[-1]), 
 		Data(case_df,"Cases","Day","# of Cases","Case Counts Across the Texas Panhandle\nLast updated: " + case_df.index[-1]),
 		Data(fatality_df,"Fatalities","Day","# of Fatalities","Fatalities Across the Texas Panhandle\nLast update: " + str(fatality_df.index[-1]))
 	]
-
-
-
-	#exit(0)
 
 	##############################################################################
 	# Plot general panhandle graphs                                              #
@@ -292,7 +291,7 @@ def main():
 
 	plt.xticks(rotation=90)
 
-	plt.title("Recoveries for the Texas Panhandle\n(may not be accurate due to descrepancies in data collection")
+	plt.title("Recoveries for the Texas Panhandle\n(may not be accurate due to descrepancies in data collection)")
 	plt.legend(variables.counties)
 	plt.savefig("graphs/Recoveries.png")
 
@@ -311,7 +310,7 @@ def main():
 	plt.savefig("png/FatalitiesBar.png")
 
 	##############################################################################
-	# Fatalities bar graph
+	# Cases bar graph
 	##############################################################################
 	plt.figure("Cases by County", figsize=(12.0, 8.5))
 	ax = m.gca()
@@ -360,11 +359,79 @@ def main():
 	plt.savefig("png/PanhandleFatalities.png")
 
 	##############################################################################
-	# TODO(David): Graph number of new of cases per day
+	# Graph number of new of cases per day
 	##############################################################################
+	m = plt.figure("New Cases Bar", figsize=(12.0, 8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
+	plt.xlabel("Day")
+	plt.ylabel("# of New Cases")
 
+	for county in variables.counties:
+		plt.bar(new_df.index,new_df[county])
 
+	plt.xticks(rotation=90)
+
+	plt.title("New Cases for the Texas Panhandle\nLast updated: " + new_df.index[-1])
+	plt.legend(variables.counties)
+	plt.savefig("graphs/NewCasesBar.png")
+	plt.savefig("png/NewCasesBar.png")
+
+	m = plt.figure("New Cases", figsize=(12.0, 8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of New Cases")
+
+	for county in variables.counties:
+		plt.plot(new_df[county])
+
+	plt.xticks(rotation=90)
+
+	plt.title("New Cases for the Texas Panhandle\nLast updated: " + new_df.index[-1])
+	plt.legend(variables.counties)
+	plt.savefig("graphs/NewCases.png")
+	plt.savefig("png/NewCases.png")
+
+	for county in variables.counties:
+		try:
+			new_df[county]
+			m = plt.figure("New Cases: " + county, figsize=(12.0, 8.5))
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of New Cases")
+
+			plt.plot(new_df[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("New Cases: " + county)
+			plt.savefig("graphs/NewCases" + county.replace(' ', '') + ".png")
+		except:
+			print("County not found: " + county)
+
+	for county in variables.counties:
+		try:
+			new_df[county]
+			m = plt.figure("New Cases: " + county + " Bar", figsize=(12.0, 8.5))
+			ax = m.gca()
+			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+			plt.xlabel("Day")
+			plt.ylabel("# of New Cases")
+
+			plt.bar(new_df.index,new_df[county])
+
+			plt.xticks(rotation=90)
+
+			plt.title("New Cases: " + county)
+			plt.savefig("graphs/NewCases" + county.replace(' ', '') + "Bar.png")
+		except:
+			print("County not found: " + county)
 
 	# TODO(David): Forecasting/Trend Analysis?
 

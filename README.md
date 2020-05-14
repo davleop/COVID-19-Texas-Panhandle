@@ -38,6 +38,8 @@ You should find all the save images in the `graphs` directory when the program i
 ![Actives](png/ActiveCasesEstimate.png)
 ![Cases](png/Cases.png)
 ![Fatalities](png/Fatalities.png)
+![New Cases](png/NewCases.png)
+![New Cases Bar](png/NewCasesBar.png)
 ![Cases Bar](png/CasesBar.png)
 ![Fatalities Bar](png/FatalitiesBar.png)
 

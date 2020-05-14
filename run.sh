@@ -5,6 +5,7 @@ fatalOverTime="https://www.dshs.state.tx.us/coronavirus/TexasCOVID19DailyCountyF
 activeOverTime="https://www.dshs.state.tx.us/coronavirus/TexasCOVID-19ActiveCaseDatabyCounty.xlsx"
 cumulativeTest="https://www.dshs.state.tx.us/coronavirus/COVID-19CumulativeTestTotalsbyCounty.xlsx"
 CaseFatalCount="https://dshs.texas.gov/coronavirus/TexasCOVID19CaseCountData.xlsx"
+newCases="https://tabexternal.dshs.texas.gov/vizql/t/THD/w/COVIDExternalQC/v/COVIDTrends/vud/sessions/301D899433AF4D26AD9C80B747DBECB8-1:1/views/7020163219168008686_7295805493000846711?csv=true"
 
 mkdir -p Texas
 mkdir -p Panhandle
@@ -17,6 +18,7 @@ curl $fatalOverTime --output FatalityCountData.xlsx -s
 curl $activeOverTime --output ActiveCaseData.xlsx -s
 curl $cumulativeTest --output CumulativeTestTotals.xlsx -s
 curl $CaseFatalCount --output CaseFatalCount.xlsx -s
+curl $newCases --output NewCases.csv -s
 cd ..
 
 echo "Reformatting data..."
