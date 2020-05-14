@@ -47,6 +47,10 @@ You should find all the save images in the `graphs` directory when the program i
 
 You can ping me through [Twitter](https://twitter.com/_D2P2_) if you need help or [Create an Issue](https://github.com/davleop/COVID-19-Texas-Panhandle/issues)
 
+## Known Issue
+
+Before running the program, you need to go to [this](https://tabexternal.dshs.texas.gov/t/THD/views/COVIDExternalQC/COVIDTrends?:isGuestRedirectFromVizportal=y&:embed=y) website and copy the data downlaod link, specifically the "Full data." From there you can copy and paste the URL into the `newCases` varaible in the `run` program. It should work from there. The DSHS isn't very user-friendly with that date for unknown reasons.
+
 ## Author
 
 David Penn <br>
