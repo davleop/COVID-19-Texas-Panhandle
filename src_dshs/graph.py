@@ -201,23 +201,41 @@ def main():
 	plt.title("Fatalities for " + RP_aggregate)
 	plt.savefig("graphs/Fatalities" + RP_aggregate + ".png")
 
+	new_df[RP_aggregate] = new_df[randall] + new_df[potter]
+	m = plt.figure(RP_aggregate + " New Cases", figsize=(12.0,8.5))
+	ax = m.gca()
+	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	plt.xlabel("Day")
+	plt.ylabel("# of New Cases")
+
+	plt.plot(new_df[RP_aggregate])
+	plt.xticks(rotation=90)
+
+	plt.title("New Cases for " + RP_aggregate)
+	plt.savefig("graphs/NewCases" + RP_aggregate + ".png")
+
+
 	##############################################################################
 	# Panhandle aggregate                                                        #
 	##############################################################################
 	agg = 'aggregate'
 	active_df[agg]   = 0
 	case_df[agg]     = 0
-	fatality_df[agg] = 0 
+	fatality_df[agg] = 0
+	new_df[agg]      = 0
 	
 	for county in variables.counties:
 		active_df[agg] += active_df[county]
 		case_df[agg] += case_df[county]
 		fatality_df[agg] += fatality_df[county]
+		new_df[agg] += new_df[county]
 
 	df_list = [
 		Data(active_df,"Active Cases Estimate Aggregated","Day","# of Active Cases Estimate","Active Cases Estimate Across the Texas Panhandle Aggregated\nLast updated: " + active_df.index[-1]), 
 		Data(case_df,"Cases Aggregated","Day","# of Cases","Case Counts Across the Texas Panhandle Aggregated\nLast updated: " + case_df.index[-1]),
-		Data(fatality_df,"Fatalities Aggregated","Day","# of Fatalities","Fatalities Across the Texas Panhandle Aggregated\nLast update: " + str(fatality_df.index[-1]))
+		Data(fatality_df,"Fatalities Aggregated","Day","# of Fatalities","Fatalities Across the Texas Panhandle Aggregated\nLast update: " + str(fatality_df.index[-1])),
+		Data(new_df,"New Cases Aggregated","Day","# of New Cases","New Cases Across the Texas Panhandle Aggregated\nLast update: " + str(new_df.index[-1]))
 	]
 
 	for df in df_list:
@@ -434,6 +452,10 @@ def main():
 			print("County not found: " + county)
 
 	# TODO(David): Forecasting/Trend Analysis?
+	active_df.index = pd.to_datetime(active_df.index)
+	case_df.index = pd.to_datetime(case_df.index)
+	fatality_df.index = pd.to_datetime(fatality_df.index)
+	new_df.index = pd.to_datetime(new_df.index)
 
 
 if __name__ == '__main__':
