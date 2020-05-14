@@ -5,5 +5,6 @@
 rm -rf graphs
 rm -rf Texas
 rm -rf Panhandle
+rm -f temp.csv
 
 echo "Done."

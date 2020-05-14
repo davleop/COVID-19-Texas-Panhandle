@@ -30,6 +30,8 @@ Outputs are in the `graphs` and `png` directories.
 
 You should find all the save images in the `graphs` directory when the program is run.
 
+![Panhandle Cases](png/PanhandleCases.png)
+![Panhandle Fatalities](png/PanhandleFatalities.png)
 ![Active Aggregate](png/ActiveCasesAggregated.png)
 ![Cases Aggregate](png/CasesAggregated.png)
 ![Fatalities Aggregate](png/FatalitiesAggregated.png)

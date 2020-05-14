@@ -11,6 +11,7 @@ import variables
 from datetime import datetime
 import csv
 from sys import exit
+import math
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -20,18 +21,27 @@ warnings.filterwarnings("ignore")
 setrecursionlimit(10000)
 # ******************************* #
 
+def calculate_sizes(lst):
+	out = []
+	for i in lst[1:]:
+		out.append(math.ceil(math.sqrt(int(i) / math.pi)) * variables.MULTIPLIER)
+
+	return np.array(out)
+
 def main():
 	if platform == "win32":
 		active_path   = "Panhandle\\active.csv"
 		case_path     = "Panhandle\\case.csv"
 		fatality_path = "Panhandle\\fatality.csv"
 		cf_path       = "Panhandle\\CaseFatalCount.csv"
+		panhandle_img = "png\\panhandle.png"
 	else:
 		active_path   = "Panhandle/active.csv"
 		case_path     = "Panhandle/case.csv"
 		fatality_path = "Panhandle/fatality.csv"
 		cf_path       = "Panhandle/CaseFatalCount.csv"
-	
+		panhandle_img = "png/panhandle.png"
+
 	active_df   = pd.read_csv(active_path, index_col=0)
 	case_df     = pd.read_csv(case_path, index_col=0)
 	fatality_df = pd.read_csv(fatality_path, index_col=0)
@@ -296,9 +306,42 @@ def main():
 	plt.savefig("graphs/FatalitiesBar.png")
 	plt.savefig("png/FatalitiesBar.png")
 
+	##############################################################################
+	# Graph of panhandle with circles correlated to cases, fatalities, etc.
+	##############################################################################
+	plt.figure("Panhandle Case Count")
+	im = plt.imread(panhandle_img)
+	implot = plt.imshow(im)
+
+	x = np.array(variables.x)
+	y = np.array(variables.y)
+	s = calculate_sizes(cf_df.cases.tolist())
+
+	plt.scatter(x,y,s=s,color='r',alpha=0.5)
+
+	plt.gca().axes.get_xaxis().set_visible(False)
+	plt.gca().axes.get_yaxis().set_visible(False)
+	plt.title("Panhandle Case Counts\nLast updated: " + datetime.now().strftime("%Y-%m-%d"))
+	plt.savefig("graphs/PanhandleCases.png")
+	plt.savefig("png/PanhandleCases.png")
+
+	plt.figure("Panhandle Fatalities")
+	im = plt.imread(panhandle_img)
+	implot = plt.imshow(im)
+
+	x = np.array(variables.x)
+	y = np.array(variables.y)
+	s = calculate_sizes(cf_df.fatalities.tolist())
+
+	plt.scatter(x,y,s=s,color='b',alpha=0.5)
+
+	plt.gca().axes.get_xaxis().set_visible(False)
+	plt.gca().axes.get_yaxis().set_visible(False)
+	plt.title("Panhandle Fatalities\nLast updated: " + datetime.now().strftime("%Y-%m-%d"))
+	plt.savefig("graphs/PanhandleFatalities.png")
+	plt.savefig("png/PanhandleFatalities.png")
 
 	# TODO(David): Graph rate of inc/dec of cases per day
-	# TODO(David): Make graph of panhandle with circles correlated to cases, fatalities, etc.
 	# TODO(David): Forecasting/Trend Analysis?
 
 
