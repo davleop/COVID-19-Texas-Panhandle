@@ -14,7 +14,6 @@ from datetime import datetime
 from sys import setrecursionlimit
 from matplotlib.ticker import MaxNLocator
 
-exit(0)
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
