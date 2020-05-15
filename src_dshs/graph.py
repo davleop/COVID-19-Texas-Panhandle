@@ -66,7 +66,7 @@ def main():
 	for d_obj in df_list:
 		counties = list(variables.counties)
 
-		m = plt.figure(d_obj.figure, figsize=(12.0, 8.5))
+		m = plt.figure(d_obj.figure, figsize=variables.figSize)
 		ax = m.gca()
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -97,7 +97,7 @@ def main():
 	for county in variables.counties:
 		try:
 			active_df[county]
-			m = plt.figure("Active Cases Estimate for " + county, figsize=(12.0, 8.5))
+			m = plt.figure("Active Cases Estimate for " + county, figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -119,7 +119,7 @@ def main():
 	for county in counties:
 		try:
 			case_df[county]
-			m = plt.figure("Case Count for " + county, figsize=(12.0, 8.5))
+			m = plt.figure("Case Count for " + county, figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -141,7 +141,7 @@ def main():
 	for county in counties:
 		try:
 			fatality_df[county]
-			m = plt.figure("Fatalities for " + county, figsize=(12.0, 8.5))
+			m = plt.figure("Fatalities for " + county, figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -243,7 +243,7 @@ def main():
 	]
 
 	for df in df_list:
-		m = plt.figure(df.figure, figsize=(12.0, 8.5))
+		m = plt.figure(df.figure, figsize=variables.figSize)
 		ax = m.gca()
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -258,7 +258,7 @@ def main():
 		plt.savefig("png/" + df.figure.replace(' ', '') + ".png")
 
 	for df in df_list:
-		m = plt.figure(df.figure + " Bar", figsize=(12.0, 8.5))
+		m = plt.figure(df.figure + " Bar", figsize=variables.figSize)
 		ax = m.gca()
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -303,7 +303,7 @@ def main():
 	for county in headers:
 		try:
 			recoveries[county]
-			m = plt.figure("Recoveries: " + county, figsize=(12.0, 8.5))
+			m = plt.figure("Recoveries: " + county, figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -319,7 +319,7 @@ def main():
 		except:
 			print("County not found: " + county)
 
-	m = plt.figure("Recoveries for the Texas Panhandle", figsize=(12.0, 8.5))
+	m = plt.figure("Recoveries for the Texas Panhandle", figsize=variables.figSize)
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -338,7 +338,7 @@ def main():
 	##############################################################################
 	# Fatalities bar graph
 	##############################################################################
-	plt.figure("Fatalities by County", figsize=(12.0, 8.5))
+	plt.figure("Fatalities by County", figsize=variables.figSize)
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 	plt.xlabel("County")
@@ -352,7 +352,7 @@ def main():
 	##############################################################################
 	# Cases bar graph
 	##############################################################################
-	plt.figure("Cases by County", figsize=(12.0, 8.5))
+	plt.figure("Cases by County", figsize=variables.figSize)
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 	plt.xlabel("County")
@@ -401,7 +401,7 @@ def main():
 	##############################################################################
 	# Graph number of new of cases per day
 	##############################################################################
-	m = plt.figure("New Cases Bar", figsize=(12.0, 8.5))
+	m = plt.figure("New Cases Bar", figsize=variables.figSize)
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -418,7 +418,7 @@ def main():
 	plt.savefig("graphs/NewCasesBar.png")
 	plt.savefig("png/NewCasesBar.png")
 
-	m = plt.figure("New Cases", figsize=(12.0, 8.5))
+	m = plt.figure("New Cases", figsize=variables.figSize)
 	ax = m.gca()
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -438,7 +438,7 @@ def main():
 	for county in variables.counties:
 		try:
 			new_df[county]
-			m = plt.figure("New Cases: " + county, figsize=(12.0, 8.5))
+			m = plt.figure("New Cases: " + county, figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
@@ -457,7 +457,7 @@ def main():
 	for county in variables.counties:
 		try:
 			new_df[county]
-			m = plt.figure("New Cases: " + county + " Bar", figsize=(12.0, 8.5))
+			m = plt.figure("New Cases: " + county + " Bar", figsize=variables.figSize)
 			ax = m.gca()
 			ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
