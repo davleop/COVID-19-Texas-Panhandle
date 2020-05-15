@@ -1,17 +1,20 @@
 # graph.py
-import warnings
-from sys import platform
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-from Data import Data
-from sys import setrecursionlimit
-import variables
-from datetime import datetime
 import csv
-from sys import exit
 import math
+import warnings
+import variables
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from sys import exit
+from Data import Data
+from sys import platform
+from datetime import datetime
+from sys import setrecursionlimit
+from matplotlib.ticker import MaxNLocator
+
+exit(0)
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -475,10 +478,7 @@ def main():
 	fatality_df.index = pd.to_datetime(fatality_df.index)
 	new_df.index = pd.to_datetime(new_df.index)
 
-	print(active_df.head())
-	print(case_df.head())
-	print(fatality_df.head())
-	print(new_df.head())
+
 
 if __name__ == '__main__':
 	main()

@@ -1,7 +1,7 @@
 # Find.py
 import csv
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 class Find:
 	def __init__(self, filepath):

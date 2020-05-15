@@ -1,6 +1,6 @@
 # reformat.py
-from sys import platform
 import pandas as pd
+from sys import platform
 
 def main():
 	if platform == "win32":

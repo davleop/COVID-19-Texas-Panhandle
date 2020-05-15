@@ -1,10 +1,10 @@
 # panhandle.py
-from sys import platform
-from Find import Find
-import pandas as pd
-import variables
-from datetime import datetime
 import csv
+import variables
+import pandas as pd
+from Find import Find
+from sys import platform
+from datetime import datetime
 
 def write(filepath, headers, data):
 	with open(filepath, 'w', newline='') as f:
