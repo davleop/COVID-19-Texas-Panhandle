@@ -11,11 +11,9 @@ from sys import exit
 from Data import Data
 from sys import platform
 from datetime import datetime
+from datetime import timedelta
 from sys import setrecursionlimit
 from matplotlib.ticker import MaxNLocator
-
-import sklearn
-import statsmodels
 
 # *** ignoring MatplotlibDeprecationWarning *** #
 warnings.filterwarnings("ignore")
@@ -478,8 +476,6 @@ def main():
 	case_df.index = pd.to_datetime(case_df.index)
 	fatality_df.index = pd.to_datetime(fatality_df.index)
 	new_df.index = pd.to_datetime(new_df.index)
-
-
 
 if __name__ == '__main__':
 	main()
