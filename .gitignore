@@ -4,5 +4,4 @@ __pycache__
 wget-log*
 *.csv
 *.xlsx
-graphs
 notes.py
