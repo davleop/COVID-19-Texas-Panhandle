@@ -4,7 +4,7 @@ set fatalOverTime=https://www.dshs.state.tx.us/coronavirus/TexasCOVID19DailyCoun
 set activeOverTime=https://www.dshs.state.tx.us/coronavirus/TexasCOVID-19ActiveCaseDatabyCounty.xlsx
 set cumulativeTest=https://www.dshs.state.tx.us/coronavirus/COVID-19CumulativeTestTotalsbyCounty.xlsx
 set CaseFatalCount=https://dshs.texas.gov/coronavirus/TexasCOVID19CaseCountData.xlsx
-set newCases="REPLACE ME"
+set newCases="https://tabexternal.dshs.texas.gov/vizql/t/THD/w/COVIDExternalQC/v/COVIDTrends/vud/sessions/D038F192EF174137BCD91F97DD9432B9-1:0/views/7020163219168008686_7295805493000846711?csv=true"
 
 if not exist "Texas" (
 	mkdir Texas
